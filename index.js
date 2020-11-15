@@ -4,7 +4,6 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
 app.post("/", (req, res) => {
   if (req.get("X-GitHub-Event") === "watch") {

@@ -1,10 +1,7 @@
-const { IncomingWebhook } = require("@slack/webhook");
+const webhook =
+  "https://hooks.slack.com/services/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";
+const requestify = require("requestify");
 
-const url =
-  "https://hooks.slack.com/services/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";
-
-const webhook = new IncomingWebhook(url);
-
-exports.sendMessage = async (message) => {
-  await webhook.send(message);
+exports.sendMessage = function (message) {
+  requestify.post(webhook, message);
 };
